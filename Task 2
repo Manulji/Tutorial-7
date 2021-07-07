@@ -1,0 +1,32 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
+public class PlayerSelection {
+
+    static ArrayList<String> players = new ArrayList<String>();
+    public String playername;
+    public int playerage;
+    public String playerSkill;
+
+
+    Scanner input = new Scanner(System.in);
+    public PlayerSelection() {
+        this.playerage=playerage;
+        this.playername =playername;
+        this.playerSkill = playerSkill;
+
+    }
+
+    public void playerAdd(String Add){
+        System.out.println("Enter player name: ");
+        String n1 = input.next();
+        n1=this.playername;
+        players.add(n1);
+
+    }
+    public void playerDetails(){
+        System.out.println("Player Name: "+ this.playername);
+        System.out.println("Player Age : "+ this.playerage);
+        System.out.println("player Skill :"+ this.playerSkill);
+
+    }
