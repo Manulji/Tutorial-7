@@ -29,6 +29,7 @@ public class Player {
     }
     public int getAge() {
         return age;
+        
     }
 
     public double battingAvg(){
