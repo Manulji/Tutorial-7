@@ -40,6 +40,7 @@ public class Player {
         double bowlingAvg = wickets / 15.0;
         return bowlingAvg;
     }
+    
     public void getPlayerDetails(){
             System.out.println("Name: "+ getName());
             System.out.println("Age: "+ getAge());
@@ -47,7 +48,6 @@ public class Player {
             System.out.println("No. of Wickets scored: "+ getWickets());
             System.out.println("No. of runs: "+ getRuns());
     }
-
 
     public void setPlayertype(String player_Type) {
         this.PlayerType= player_Type;
