@@ -1,6 +1,7 @@
 import java.util.ArrayList;
 
-public class Player {
+public class Player 
+{
     public String name;
     public int age;
     private int runs;
