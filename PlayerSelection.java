@@ -1,84 +1,101 @@
 import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.Locale;
+import java.util.Scanner;
 
-public class Player {
-    public String name;
-    public int age;
-    private int runs;
-    private int wickets;
-    public String PlayerType;
-    private static ArrayList<Player> players1 = new ArrayList<Player>();
+public class PlayerSelection {
+    private String method;
+    private static Player P;
 
 
-    public Player(String name, int age, String playerType, int runs, Integer wickets) {
-        this.setName(name);
-        this.setAge(age);
-        this.setPlayertype(playerType);
-        this.setRuns(runs);
-        this.setWickets(wickets);
-    }
 
-    public void setName(String name) {
-        this.name = name;
+    Scanner input = new Scanner(System.in);
+    public PlayerSelection() {
 
-    }
-    public String getName() {
-        return name;
-    }
-    public void setAge(int age) {
-        this.age = age;
-    }
-    public int getAge() {
-        return age;
-        
-    }
+        this.method = input.next().toUpperCase(Locale.ROOT);
+        if(method.equals("A")){
+            addPlayer();
 
-    public double battingAvg(){
-        double battingAvg = runs / 15.0;
-        return battingAvg;}
+        }else if(method.equals("V")){
+           viewPlayers();
+        }else if(method.equals("B")){
+            bestBatsman();
+        }else if(method.equals("C")){
+            bestBowler();
+        }else if(method.equals("D")){
+            bestKeeper();
+        }
 
-    public double bowlingAvg() {
-        double bowlingAvg = wickets / 15.0;
-        return bowlingAvg;
-    }
-    
-    public void getPlayerDetails(){
-            System.out.println("Name: "+ getName());
-            System.out.println("Age: "+ getAge());
-            System.out.println("Type of player: "+ getPlayerType());
-            System.out.println("No. of Wickets scored: "+ getWickets());
-            System.out.println("No. of runs: "+ getRuns());
-    }
-
-    public void setPlayertype(String player_Type) {
-        this.PlayerType= player_Type;
-    }
-
-    public String getPlayerType() {
-
-       return this.PlayerType;
-    }
-
-    public int setRuns(int runs) {
-       return this.runs = runs;
-    }
-
-    public int getRuns() {
-        return runs;
-    }
-
-    public int setWickets(int wickets) {
-        return this.wickets = wickets;
-    }
-
-    public int getWickets() {
-        return wickets;
-    }
-
-    public void playercall(Player P){
-        players1.add(P);
 
     }
-    public ArrayList<Player> getPlayers1(){
-        return players1;
+
+
+    public void addPlayer(){
+        System.out.println("Enter player Name: ");
+        String name = input.next();
+        System.out.println("Enter player Age: ");
+        int age = input.nextInt();
+        System.out.println("Enter player Type: ");
+        String PlayerType = input.next();
+        System.out.println("Enter player Runs: ");
+        int runs = input.nextInt();
+        System.out.println("Enter player Wickets: ");
+        int wickets = input.nextInt();
+
+        P = new Player(name,age,PlayerType,runs,wickets);
+        ArrayList<Player> players = P.getPlayers1();
+        players.add(P);
+        System.out.println("Player added!");
     }
+
+    public void viewPlayers(){
+        ArrayList<Player> players = P.getPlayers1();
+        Iterator itr = players.iterator();
+        while(itr.hasNext()) {
+            P = (Player) itr.next();
+            System.out.println("Name: "+P.name +"\nAge: "+P.age+"\nPlayer Type: "+P.PlayerType+"\n");
+        }
+
+        System.out.println(players);
+    }
+
+
+    private void bestBatsman(){
+        ArrayList<Player> players = P.getPlayers1();
+        String nameIterate = players.get(0).getName();
+        int runsIterate = players.get(0).getRuns();
+        for (int i=0; i< players.size(); i++) {
+            if (runsIterate < players.get(i).getRuns()) {
+                nameIterate = players.get(i).getName();
+                runsIterate = players.get(i).getRuns();
+            }
+        }
+        System.out.println(nameIterate + " is the best-batsman with " + runsIterate + "runs");
+    }
+
+    private void bestBowler(){
+        ArrayList<Player> players = P.getPlayers1();
+        String nameIterate = players.get(0).getName();
+        int wicketsIterate = players.get(0).getWickets();
+        for (int i=0; i< players.size(); i++) {
+            if (wicketsIterate < players.get(i).getWickets()) {
+                nameIterate = players.get(i).getName();
+                wicketsIterate = players.get(i).getWickets();
+            }
+        }
+        System.out.println(nameIterate + " is the best-bowler with " + wicketsIterate + "wickets");
+    }
+    private void bestKeeper(){
+        ArrayList<Player> players = P.getPlayers1();
+        String nameIterate = players.get(0).getName();
+        int wicketsIterate = players.get(0).getWickets();
+        for (int i=0; i< players.size(); i++) {
+            if (wicketsIterate < players.get(i).getWickets()) {
+                nameIterate = players.get(i).getName();
+                wicketsIterate = players.get(i).getWickets();
+            }
+        }
+        System.out.println(nameIterate + " is the best-bowler with " + wicketsIterate + "wickets");
+    }
+
 }
