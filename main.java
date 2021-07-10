@@ -1,5 +1,4 @@
 package Tutorials;
-
 import java.util.Scanner;
 
 public class Main {
@@ -19,9 +18,6 @@ public class Main {
         Player P6 = new Player("Trent Boult",26,"bowler",15,27);
         P1.playercall(P6);
 
-
-
-
         while(true) {
             System.out.println("Enter 'S' To continue / Enter 'E' To Exit");
             String X = sc.next();
@@ -32,13 +28,9 @@ public class Main {
                         "D: Display the best Keeper");
                 new PlayerSelection();
 
-
             }else if(X.equalsIgnoreCase("E")){
                 break;
-
             }
-
-
         }
     }
 }
