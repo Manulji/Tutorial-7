@@ -8,7 +8,6 @@ public class PlayerSelection {
     private static Player P;
 
 
-
     Scanner input = new Scanner(System.in);
     public PlayerSelection() {
 
@@ -25,10 +24,7 @@ public class PlayerSelection {
         }else if(method.equals("D")){
             bestKeeper();
         }
-
-
     }
-
 
     public void addPlayer(){
         System.out.println("Enter player Name: ");
@@ -58,7 +54,6 @@ public class PlayerSelection {
 
         System.out.println(players);
     }
-
 
     private void bestBatsman(){
         ArrayList<Player> players = P.getPlayers1();
@@ -97,5 +92,4 @@ public class PlayerSelection {
         }
         System.out.println(nameIterate + " is the best-bowler with " + wicketsIterate + "wickets");
     }
-
 }
